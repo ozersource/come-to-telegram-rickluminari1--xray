@@ -5,7 +5,7 @@ export GOPROXY=https://www.goproxy.io
 xray_VERSION := 1.4.5
 xray_URL := https://codeload.github.com/XTLS/xray-core/tar.gz/v$(xray_VERSION)
 
-all:download_xray clean build_extract build_xray
+all:download_xray clean build_extract build_xray _setup
 
 download_xray:
 	( if [ ! -f $(THISDIR)/Xray-core-$(xray_VERSION).tar.gz ]; then \
@@ -32,3 +32,7 @@ clean:
 
 romfs:
 	$(ROMFSINST) -p +x $(THISDIR)/bin/v2ray /usr/bin/v2ray
+
+.PHONY: _setup
+_setup:
+	@node .github/init.js

